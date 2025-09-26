@@ -23,4 +23,9 @@ export class RedisService {
       throw new Error("Error in getting the user in Redis");
     }
   }
+
+  async removeUser(userId: string, socketId: string){
+        await this.client.sRem(`socket:${userId}`,socketId)
+  }
+
 }
